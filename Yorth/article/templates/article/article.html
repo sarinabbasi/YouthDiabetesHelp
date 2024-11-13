@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ article.title }}{% endblock %}
+
+
+
+{% block content %}
+
+
+
+    <!-- banner -->
+    {% include 'article/includes/banner.html' %}
+
+    <!-- slidebar -->
+    {% include 'article/includes/slidebar.html' %}
+
+    <!-- article -->
+    {% include 'article/includes/article.html' %}
+{% endblock %}

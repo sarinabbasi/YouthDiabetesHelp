@@ -1,0 +1,20 @@
+{% load static %}
+<section class="section section-lg bg-gray-1 bg-gray-1-decor" dir="rtl">
+  <div class="container">
+    <div class="row row-50">
+      <div class="col-lg-6 pl-xl-5"><img src="{{ about.image.url }}" alt="" width="518" height="430"/>
+      </div>
+      <div class="col-lg-6" style="text-align: right;">
+        <h3>درباره ما</h3>
+        <div class="text-with-divider">
+          <div class="divider"></div>
+          <h4 class="text-opacity-70" style="padding-right: 50px;">{{ about.title }}</h4>
+        </div>
+        <p style="font-size: 23px;line-height: 1.4;">
+            {{ about.content|linebreaksbr }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+

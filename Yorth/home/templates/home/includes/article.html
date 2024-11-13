@@ -1,0 +1,34 @@
+{% load static %}
+<section class="section section-lg bg-gray-1">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-9 col-lg-7 wow-outer">
+                <div class="wow slideInDown">
+                    <h3>درباره دیابت</h3>
+                    <p style="font-size: 20px">این بخش، مجموعه‌ای از مقالات مرتبط با دیابت را کاوش کنید. از اطلاعات مفید و به‌روز تا راهنمایی‌های عملی، مقالات ما به شما اطلاعاتی کامل در مورد دیابت ارائه می‌دهند</p>
+                </div>
+            </div>
+        </div>
+        <div class="row row-50 justify-content-center">
+            {% for articlelist_item in articlelist %}
+                <div class="col-md-6 col-lg-4 wow-outer">
+                    <div class="wow fadeInUp">
+                        <article class="box-causes">
+                            <div class="box-causes-img" width="372" height="396">
+                                <img src="{{ articlelist_item.image.url }}" alt=""
+                                     style="background-size: contain; width:396px; height:280px"/>
+                                <a class="button button-sm button-primary"
+                                   href="{% url 'article:article' id=articlelist_item.article_id %}">ادامه مطلب</a>
+                            </div>
+                            <h4 class="font-weight-medium"><a
+                                    href="{% url 'article:article' id=articlelist_item.article_id %}">{{ articlelist_item.title }}</a>
+                            </h4>
+                            <p class="">{{ articlelist_item.text }}</p>
+                        </article>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+</section>

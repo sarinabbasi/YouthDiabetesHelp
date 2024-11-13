@@ -1,0 +1,70 @@
+{% load static %}
+
+
+<section class="section section-xl" dir="rtl">
+    <div class="container">
+        <div class="row row-50 justify-content-lg-between align-items-lg-center">
+            <div class="col-lg-6">
+                <div class="box-img-animate">
+                    <div class="box-img-animate-item"
+                         data-parallax-scroll="{&quot;y&quot;: -20, &quot;x&quot;: -60,  &quot;smoothness&quot;: 50 }">
+                        <img src="{{ mission.image1.url }}" alt="" style="height: 153px; width: 260px"></div>
+                    <div class="box-img-animate-item"
+                         data-parallax-scroll="{&quot;y&quot;: 150, &quot;x&quot;: 0,  &quot;smoothness&quot;: 50 }">
+                        <img src="{{ mission.image2.url }}" alt="" style="height: 191px; width: 271px"></div>
+                    <div class="box-img-animate-item"
+                         data-parallax-scroll="{&quot;y&quot;:70, &quot;x&quot;: 250,  &quot;smoothness&quot;: 50 }">
+                        <img src="{{ mission.image3.url }}" alt="" style="height: 191px; width: 271px"></div>
+                    <div class="box-img-animate-item"
+                         data-parallax-scroll="{&quot;y&quot;:30, &quot;x&quot;: 30,  &quot;smoothness&quot;: 50 }"><img
+                        <img src="{{ mission.image4.url }}" alt="" style="height: 239px; width: 336px"></div>
+                    <div class="box-img-animate-item"
+                         data-parallax-scroll="{&quot;y&quot;:60, &quot;x&quot;: 70,  &quot;smoothness&quot;: 50 }"><img
+                        <img src="{{ mission.image5.url }}" alt="" style="height: 126px; width: 179px"></div>
+                    <div class="box-img-animate-item"
+                         data-parallax-scroll="{&quot;y&quot;:0, &quot;x&quot;: -140,  &quot;smoothness&quot;: 50 }">
+
+                        <img src="{{ mission.image6.url }}" alt="" style="height: 153px; width: 260px"></div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-5">
+                <div class="innset-xl-left-70" dir="rtl" style="text-align: right">
+                    <h3>ماموریت ما</h3>
+                    <p class="text-opacity-80" style="font-size: 20px">سازمان ما تعدادی از اهداف را که می‌توان به عنوان
+                        ماموریت‌های ما شناخت،
+                        دنبال می‌کند. بیشتر درباره آن‌ها می‌توانید در زیر بیاموزید.</p>
+                    <div class="row row-50">
+                        {% for mission in missions %}
+                            <div class="col-md-6 col-lg-12">
+                                <div class="box-icon-modern">
+                                    {% if mission.icon %}
+                                      <style>
+                                        @media (max-width: 767px) {
+                                            .img-mission {
+                                                text-align: center;
+                                                width: 7rem;
+                                                margin-right: 11rem;
+                                            }
+                                        }
+                                    </style>
+
+                                     <img class="img-mission" src="{{ mission.icon.url }}" style="height: 80px;">
+                                    {% else %}
+                                        <div><span class="icon-xl linearicons-baby2 icon-primary"></span></div>
+                                    {% endif %}
+                                    <div class="box-icon-caption">
+                                        <h4><a href="#">{{ mission.title }}</a></h4>
+                                        <p style="font-size: 20px">{{ mission.text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

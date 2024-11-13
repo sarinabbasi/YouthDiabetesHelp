@@ -1,0 +1,25 @@
+  {% load static  %}
+
+    <section class="section section-lg bg-gray-1">
+          <div class="container">
+            <h3 class="text-center">تیم ما</h3>
+            <div class="row no-gutters">
+                {% for team in team %}
+              <div class="col-md-6 col-lg-4" >
+                <div class="team-classic" >
+                  <div class="team-classic-figure"><img src="{{ team.image.url}}" alt="" width="390" height="252"/>
+                    <ul class="team-classic-soc-list">
+                      <li><a class="icon icon-md fa-instagram" href="#"></a></li>
+                    </ul>
+                  </div>
+                  <div class="team-classic-caption">
+                    <h4><a class="team-name" href="#">{{ team.fullname }}</a></h4>
+                     <p style="font-size: 17px;">{{ team.job}}</p>
+                  </div>
+                </div>
+              </div>
+                {% endfor %}
+
+            </div>
+          </div>
+        </section>

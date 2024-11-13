@@ -1,0 +1,82 @@
+/* styles.css */
+.list-ordered {
+    counter-reset: li;
+    text-align: right;
+}
+
+.list-ordered > li {
+    position: relative;
+    padding-right: 25px;
+}
+
+.list-ordered > li:before {
+    content: "\2022";
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 15px;
+    color: #000;
+}
+
+.list-ordered > li + li {
+    margin-top: 4px;
+}
+
+.bg-white-1 {
+    background-color: #f5f5f5;
+}
+
+.bg-white-1:not([style*="background-"]) + .bg-white-1:not([style*="background-"]) {
+    padding-top: 0;
+}
+
+.bg-white-1-decor {
+    position: relative;
+}
+
+.bg-white-1-decor:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: calc(100% - 2px);
+    height: 65px;
+    background-image: url('../images/decor-wave-bottom2.png');
+}
+
+.img-style {
+    margin-top: 30px;
+    margin-right: -16px;
+    width: 150px;
+    height: 70px;
+}
+
+.link-style {
+    color: initial;
+    transition: color 0.3s;
+}
+
+.link-style:hover {
+    color: #ff6a00;
+}
+.texts p {
+    font-family: 'Lateef', cursive;
+    font-size: 23px;
+    text-align: right;
+}
+
+.custom-list ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.custom-list li::before {
+    content: "\2022";
+    color: black;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+

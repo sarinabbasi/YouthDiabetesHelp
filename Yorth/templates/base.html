@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en" xmlns="http://www.w3.org/1999/html">
+<!-- head -->
+<head>
+    <title>{% block title %}Default Title{% endblock %}</title>
+{% include 'includes/head.html' %}
+
+<body>
+<div class="preloader">
+    <div class="preloader-body">
+        <div class="cssload-container">
+            <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>... در حال بارگذاری</p>
+    </div>
+</div>
+
+<!-- header-->
+{% include 'includes/header.html' %}
+
+
+
+{% block content %}
+
+
+{% endblock %}
+
+<!-- header-->
+{% include 'includes/footer.html' %}
+
+<div class="snackbars" id="form-output-global" style="text-align: left;line-height: 0"></div>
+<script src="{% static 'js/core.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static "js/error.js" %}"></script>
+<a href="#" id="ui-to-top" class="ui-to-top fa fa-angle-up active"
+   style="text-align: center;  align-items: center "></a>
+</body>
+</html>

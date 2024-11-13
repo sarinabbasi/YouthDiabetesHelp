@@ -1,0 +1,26 @@
+
+
+{% load static %}
+<section class="section section-lg bg-default" dir="rtl">
+    <div class="container">
+        <h3 class="text-center">ماموریت ما</h3>
+        <div class="row row-30 row-md-40 row-xl-60">
+            {% for mission in missions %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="box-icon-modern">
+                        {% if mission.icon %}
+                            <img src="{{ mission.icon.url }}" style="height: 80px; ">
+                        {% else %}
+                            <div><span class="icon-xl linearicons-baby2 icon-primary"></span></div>
+                        {% endif %}
+                        <div class="box-icon-caption">
+                            <h4><a href="#">{{ mission.title }}</a></h4>
+                            <p>{{ mission.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>

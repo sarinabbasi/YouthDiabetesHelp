@@ -1,0 +1,26 @@
+ {% load static %}
+
+
+
+<footer class="section footer-minimal context-dark">
+        <div class="container wow-outer">
+            <div class="wow fadeIn">
+                <div class="row row-50 row-lg-60">
+                    <div class="col-12"><a href="index.html"><img
+                            src={% static "images/icons/PicsArt_08-09-09.36.43.jpg" %} alt="" width="207" height="51"/></a>
+                    </div>
+                    <div class="col-12">
+                        <ul class="footer-minimal-nav">
+                            <li><a href="{% url "about:about" %}">About Us</a></li>
+                            <li><a href="{% url "home:home" %}">Home</a></li>
+                            <li><a href="{% url "about:about" %}">Team</a></li>
+                            <li><a href="{% url "contact:contact" %}">Contacts</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>

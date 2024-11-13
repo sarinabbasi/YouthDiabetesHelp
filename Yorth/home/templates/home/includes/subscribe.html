@@ -1,0 +1,83 @@
+{% load static %}
+
+
+<section class="parallax-container bg-gray-600" data-parallax-img="{% static "images/1920_diabetesfinal.jpg" %}">
+    <div class="parallax-content section-xxl text-center">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-9 col-lg-8 col-xl-8 wow-outer">
+                    <div class="innset-xl-right-30 innset-xl-left-30">
+                        <div class="wow slideInDown" dir="rtl">
+                            <h3 dir="rtl" style="margin-bottom: 50px">اشتراک بگیرید تا مطلع شوید</h3>
+                            <div class="message"></div>
+
+                            <form class="rd-form rd-form-inline" id="subscription-form" style="margin-top: 0px">
+                                {% csrf_token %}
+                                <!-- Your form inputs here -->
+                                <div class="form-wrap">
+                                    <input class="form-input" id="phone" name="phone"
+                                           style="text-align: center; font-size: 16px"
+                                           placeholder="شماره تلفن را وارد کنید">
+                                </div>
+                                <div class="form-button">
+                                    <button class="button button-primary button-lg" type="button"
+                                            style="font-size: 14px"
+                                            id="subscribe-btn">اشتراک‌گذاری
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+$(document).ready(function () {
+    // Attach a click event handler to the subscribe button
+    $("#subscribe-btn").click(function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Reset the message and input border
+        $(".message").empty();
+        $("#phone").removeClass("error-border");
+
+        // Get the form data
+        var formData = $("#subscription-form").serialize();
+
+        // Validate the phone number (11 characters and numeric)
+        var phoneNumber = $("#phone").val();
+        if (phoneNumber.length !== 11 || !/^\d+$/.test(phoneNumber)) {
+            // Display the error message
+            $(".message").removeClass("success").addClass("error").html("لطفا یک شماره تلفن معتبر وارد کنید");
+
+            // Add red border to the input field
+            $("#phone").addClass("error-border");
+
+            return; // Abort the submission
+        }
+
+        // Perform the AJAX POST request
+        $.ajax({
+            type: "POST",
+            url: "{% url 'home:home' %}", // Replace 'your_subscription_endpoint' with the actual URL to handle the form submission on the server-side
+            data: formData,
+            success: function (response) {
+                // Handle the successful response here (e.g., show a success message)
+                console.log("Subscription successful!");
+                $(".message").removeClass("error").addClass("success").html("اشتراک با موفقیت انجام شد");
+            },
+            error: function (xhr, status, error) {
+                // Handle errors here (e.g., show an error message)
+                console.error("Error occurred:", error);
+                var errorMessage = xhr.responseText; // Get the error message from the server
+                $(".message").removeClass("success").addClass("error").html(errorMessage);
+            },
+        });
+    });
+});
+</script>
+
+
